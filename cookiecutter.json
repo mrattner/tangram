@@ -1,0 +1,7 @@
+{
+    "project_name": "Tangram",
+    "module_name": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+    "repository": "https://wackyratt@bitbucket.org/wackyratt/{{ cookiecutter.module_name }}.hg",
+    "author": "M. Rattner",
+    "license": "MIT"
+}

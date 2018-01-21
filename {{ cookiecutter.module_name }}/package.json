@@ -1,0 +1,19 @@
+{
+  "name": "intrepid",
+  "repository": "https://wackyratt@bitbucket.org/wackyratt/intrepid.hg",
+  "version": "0.1.0",
+  "description": "I don't do a whole lot yet.",
+  "main": "index.js",
+  "devDependencies": {
+    "elm": "0.18.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "repl": "./node_modules/.bin/elm-repl",
+    "make": "./node_modules/.bin/elm-make",
+    "reactor": "./node_modules/.bin/elm-reactor",
+    "elm-install": "./node_modules/.bin/elm-package install"
+  },
+  "author": "M. Rattner",
+  "license": "MIT"
+}
