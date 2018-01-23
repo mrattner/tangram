@@ -40,6 +40,7 @@ The installation of the Elm platform tools is done via NPM, specified in
 `package.json`. Elm's packages are defined in `elm-package.json`.
 
 The Elm platform commands have shortcuts defined as NPM scripts:
+
 * `npm run repl` - start the Elm REPL; Ctrl + C to quit
 * `npm run reactor` - start an internal web server that serves your Elm project
 * `npm run make` - compile Elm files to HTML or JavaScript
