@@ -1,2 +1,12 @@
-syntax:glob
-elm-stuff
+syntax: glob
+elm-stuff/**
+node_modules/**
+{%- if cookiecutter.use_bulma_and_sass|lower == "y" -%}
+resources/css/**
+{%- endif %}
+{%- if cookiecutter.use_svg_icons|lower == "y" -%}
+out/**
+resources/images/sprite.svg
+{%- endif %}
+app.js
+package-lock.json

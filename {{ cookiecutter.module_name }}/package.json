@@ -1,19 +1,51 @@
 {
-  "name": "intrepid",
-  "repository": "https://wackyratt@bitbucket.org/wackyratt/intrepid.hg",
+  "name": "{{ cookiecutter.module_name }}",
+  "repository": "{{ cookiecutter.repository }}",
   "version": "0.1.0",
   "description": "I don't do a whole lot yet.",
-  "main": "index.js",
   "devDependencies": {
-    "elm": "0.18.0"
+{%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
+    "bulma": "^0.7.1",
+{%- endif %}
+    "elm": "^0.18.0",
+    "http-server": "^0.11.1",
+{%- if cookiecutter.use_svg_icons|lower == "y" %}
+    "imagemin": "^5.3.1",
+    "imagemin-svgo": "^6.0.0",
+{%- endif %}
+{%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
+    "node-sass": "^4.5.3",
+    "npm-scripts-watcher": "^1.0.2",
+{%- endif %}
+{%- if cookiecutter.use_svg_icons|lower == "y" %}
+    "rimraf": "^2.6.2",
+    "svgstore-cli": "^1.3.1"
+{%- endif %}
   },
   "scripts": {
+{%- if cookiecutter.use_svg_icons|lower == "y" %}
+    "prebuildsvg": "rimraf out/svg && node bin/imagemin-svgo.js",
+    "buildsvg": "svgstore -o resources/images/sprite.svg out/svg/**/*.svg -p icon-",
+{%- endif %}
+    "elm-install": "elm-package install -y",
+    "elm-make": "elm make ./src/Main.elm --output=app.js --warn",
+    "repl": "elm-repl",
+{%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
+    "sass": "node-sass ./resources/scss --output ./resources/css --source-map true",
+{%- endif %}
+    "start": "elm-reactor",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "repl": "./node_modules/.bin/elm-repl",
-    "make": "./node_modules/.bin/elm-make",
-    "reactor": "./node_modules/.bin/elm-reactor",
-    "elm-install": "./node_modules/.bin/elm-package install"
+{%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
+    "watch": "npm-scripts-watcher"
+{%- endif %}
   },
-  "author": "M. Rattner",
-  "license": "MIT"
+{%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
+  "watch": {
+    "resources/**/*.scss": [
+      "sass"
+    ]
+  },
+{%- endif %}
+  "author": "{{ cookiecutter.author }}",
+  "license": "{{ cookiecutter.license }}"
 }
