@@ -17,13 +17,13 @@ the package JSON file's dev dependency list accordingly.
 To define a new build script, add an entry to the `scripts` object in
 `package.json`. To run the script, execute the command `npm run <script name>`.
 
-{%- if cookiecutter.use_bulma_and_sass|lower == "y" -%}
+{%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
 This project uses `npm-scripts-watcher` to automatically run scripts whenever
 files matching specific pathnames are saved. To add a new watcher, add an entry
 to the `watch` object in `package.json`. To start watching the specified paths,
 execute `npm run watch`.
-
 {%- endif %}
+
 There are some special script names and prefixes/suffixes for script hooks. See
 [NPM scripts documentation](https://docs.npmjs.com/misc/scripts) for more
 information.
