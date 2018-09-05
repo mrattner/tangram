@@ -1,6 +1,7 @@
 {
     "project_name": "Tangram",
     "module_name": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+    "project_description": "I don't do a whole lot yet.",
     "use_bulma_and_sass": "y",
     "use_svg_icons": "y",
     "repository": "https://wackyratt@bitbucket.org/wackyratt/{{ cookiecutter.module_name }}.hg",

@@ -1,12 +1,11 @@
 syntax: glob
 elm-stuff/**
 node_modules/**
-{%- if cookiecutter.use_bulma_and_sass|lower == "y" -%}
-resources/css/**
+{%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
+stylesheets/css/**
 {%- endif %}
 {%- if cookiecutter.use_svg_icons|lower == "y" -%}
 out/**
-resources/images/sprite.svg
 {%- endif %}
-app.js
+public/**
 package-lock.json

@@ -2,16 +2,18 @@
   "name": "{{ cookiecutter.module_name }}",
   "repository": "{{ cookiecutter.repository }}",
   "version": "0.1.0",
-  "description": "I don't do a whole lot yet.",
+  "description": "{{ cookiecutter.project_description }}",
+  "author": "{{ cookiecutter.author }}",
+  "license": "{{ cookiecutter.license }}",
   "devDependencies": {
 {%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
     "bulma": "^0.7.1",
 {%- endif %}
-    "elm": "^0.18.0",
+    "elm": "^0.19.0",
+    "elm-test": "^0.19.0-beta8",
     "http-server": "^0.11.1",
 {%- if cookiecutter.use_svg_icons|lower == "y" %}
-    "imagemin": "^5.3.1",
-    "imagemin-svgo": "^6.0.0",
+    "imagemin-cli": "^3.0.0",
 {%- endif %}
 {%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
     "node-sass": "^4.5.3",
@@ -24,28 +26,24 @@
   },
   "scripts": {
 {%- if cookiecutter.use_svg_icons|lower == "y" %}
-    "prebuildsvg": "rimraf out/svg && node bin/imagemin-svgo.js",
-    "buildsvg": "svgstore -o resources/images/sprite.svg out/svg/**/*.svg -p icon-",
+    "prebuildsvg": "rimraf out/svg && imagemin images/**/*.svg --plugin=svgo",
+    "buildsvg": "svgstore -o public/sprite.svg out/svg/**/*.svg -p icon-",
 {%- endif %}
-    "elm-install": "elm-package install -y",
-    "elm-make": "elm make ./src/Main.elm --output=app.js --warn",
-    "repl": "elm-repl",
 {%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
-    "sass": "node-sass ./resources/scss --output ./resources/css --source-map true",
+    "buildsass": "node-sass ./stylesheets/scss --output ./stylesheets/css --source-map true",
 {%- endif %}
-    "start": "elm-reactor",
-    "test": "echo \"Error: no test specified\" && exit 1",
 {%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
-    "watch": "npm-scripts-watcher"
+    "watch": "npm-scripts-watcher",
 {%- endif %}
+
+    "start": "elm reactor",
+    "test": "elm-test"
   },
 {%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
   "watch": {
-    "resources/**/*.scss": [
+    "stylesheets/**/*.scss": [
       "sass"
     ]
-  },
+  }
 {%- endif %}
-  "author": "{{ cookiecutter.author }}",
-  "license": "{{ cookiecutter.license }}"
 }
