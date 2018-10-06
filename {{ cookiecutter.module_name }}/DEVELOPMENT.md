@@ -24,7 +24,7 @@ the `package.json` file's dev dependency list accordingly.
 
 ## Managing application dependencies (Elm)
 
-Run `npx elm install <namespace>/<package> to add a new app dependency.
+Run `npx elm install <namespace>/<package>` to add a new app dependency.
 These are managed in the `elm.json` file. See the readme in the
 [Elm compiler documentation](2).
 
