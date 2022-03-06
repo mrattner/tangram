@@ -39,3 +39,4 @@ view model =
     , div [] [ text (String.fromInt model) ]
     , button [ onClick Increment ] [ text "+" ]
     ]
+

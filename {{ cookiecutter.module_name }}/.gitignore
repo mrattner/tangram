@@ -1,11 +1,11 @@
-syntax: glob
-elm-stuff/**
-node_modules/**
+elm-stuff
+node_modules
 {%- if cookiecutter.use_bulma_and_sass|lower == "y" %}
-stylesheets/css/**
+stylesheets/css
 {%- endif %}
 {%- if cookiecutter.use_svg_icons|lower == "y" -%}
-out/**
+out
 {%- endif %}
-public/**
+public
 package-lock.json
+

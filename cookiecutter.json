@@ -4,7 +4,8 @@
     "project_description": "I don't do a whole lot yet.",
     "use_bulma_and_sass": "y",
     "use_svg_icons": "y",
-    "repository": "https://wackyratt@bitbucket.org/wackyratt/{{ cookiecutter.module_name }}.hg",
+    "repository": "https://github.com/mrattner/{{ cookiecutter.module_name }}.git",
     "author": "M. Rattner",
     "license": "MIT"
 }
+

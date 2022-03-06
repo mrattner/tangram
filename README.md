@@ -27,10 +27,10 @@ run the suggested command to allow read access to the update config store:
     $ sudo chown -R $USER:$(id -gn $USER) ~/.config
 
 ## Using the template
-Provide the URL to the Mercurial repository to create a templated project in the
+Provide the URL to the Git repository to create a templated project in the
 current directory:
 
-    $ cookiecutter bb:wackyratt/tangram
+    $ cookiecutter gh:mrattner/tangram
 
 Follow the prompts, or press ENTER to accept the default values. Install the
 JavaScript dependencies by running `npm install` in the project directory.
